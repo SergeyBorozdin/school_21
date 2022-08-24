@@ -68,6 +68,46 @@ int main() {
     return 0;
 }
 
+// ===============================================================
+с динамическим массивом
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n = 0;
+    int i = 0;
+    int flag = 1;
+    int *arr = malloc(sizeof(int) * 1);
+    if (arr != NULL) {
+        while (n != -1) {
+
+            if (scanf("%d", &n) != 1) {
+                printf("n/a");
+                flag = 0;
+                break;
+            }
+            if (n != -1) {
+                arr = realloc(arr, sizeof(int) * (n +2));
+                arr[i] = n;
+                i++;
+            }
+        }
+
+        if (flag && arr[0] != 0) {
+
+            for(int j = i - 1; j > 0; j--) {
+                printf("%d ", arr[j]);
+            }
+            printf("%d", arr[0]);
+        }
+    }
+    free(arr);
+    return 0;
+}
+
+
 // ===========================================
 
 
