@@ -110,6 +110,43 @@ int main() {
 
 // ===========================================
 
+// задача экзамена 3 перевод строки в верхний регистр
 
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+
+    char *str = NULL;
+    size_t i = 0;
+    char put;
+
+    while(scanf("%c", &put) != 0 && put != '\n') {
+        str = realloc(str, sizeof(char) * (i+1));
+        if (str != NULL) {
+            str[i] = put;
+            i++;
+        }
+
+    }
+    str[i] = '\0';
+
+
+
+    for (size_t j = 0; j < i; j++) {
+        if (str[j] == ' ') {
+            str[j] = str[j] - 32;
+        }
+    }
+
+
+    for (size_t j = 0; j < i; j++) {
+        printf("%c", str[j]);
+    }
+    return 0;
+}
+
+
+// ========================================
 
 
