@@ -363,6 +363,52 @@ int main () {
     }
     return 0;
 }
+    
+// ======================================================
+    // задача 9  поворот матрицы на 90 градусов
+    #include <stdio.h>
+
+int main () {
+
+    int Y, X, flag = 1;
+
+    if (scanf("%d%d", &Y, &X) == 2) {
+        int matrix[Y][X];
+        for (int i = 0; i < Y; i++) {
+            for (int j = 0; j < X; j++) {
+                scanf("%d", &matrix[i][j]);
+            }
+        }
+
+        if (flag) {
+            int trans_matrix[Y][X];
+
+            for (int i = 0; i < Y; i++) {
+                for (int j = 0; j < X; j++) {
+                    trans_matrix[j][i] = matrix[i][j];
+                }
+
+            }
+            printf("------------------\n");
+            for (int i = 0; i < Y; i++) {
+                for (int j = X -1; j >= 0; j--) {
+                    printf("%d ", trans_matrix[i][j]);
+                }
+                printf("\n");
+            }
+        }
+
+    } else {
+        printf("n/a");
+        flag = 0;
+    }
+
+    
+    return 0;
+}
+    
+    // ================================================================
+    
 
  // ****************************************   
     // таблица askii с номерами 
