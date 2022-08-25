@@ -120,31 +120,37 @@ int main () {
     char *str = NULL;
     size_t i = 0;
     char put;
+    str = malloc(sizeof(char) * 1);
 
-    while(scanf("%c", &put) != 0 && put != '\n') {
-        str = realloc(str, sizeof(char) * (i+1));
-        if (str != NULL) {
-            str[i] = put;
-            i++;
+    if ( str != NULL) {
+
+        while(scanf("%c", &put) != 0 && put != '\n') {
+            str = realloc(str, sizeof(char) * (i+1));
+            if (str != NULL) {
+                str[i] = put;
+                i++;
+            }
+
+        }
+        str[i] = '\0';
+
+
+
+        for (size_t j = 0; j < i; j++) {
+            if (str[j] == ' ') {
+                if (str[j+1] > 'a' && str[j+1] < 'z') {
+                    str[j+1] = str[j+1] - 32;
+                }
+            }
         }
 
-    }
-    str[i] = '\0';
 
-
-
-    for (size_t j = 0; j < i; j++) {
-        if (str[j] == ' ') {
-            str[j] = str[j] - 32;
+        for (size_t j = 0; j < i; j++) {
+            printf("%c", str[j]);
         }
     }
-
-
-    for (size_t j = 0; j < i; j++) {
-        printf("%c", str[j]);
-    }
+    free(str);
     return 0;
-}
 
 
 // ========================================
