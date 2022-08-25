@@ -217,6 +217,56 @@ int main() {
    
 // =====================================
     
+   // задача 6 swap min max  в двумерном массиве - статика
+#include <stdio.h>
+
+int main () {
+    int Y, X;
+    int flag = 1;
+
+    if (scanf("%d%d", &Y, &X) != 2) {
+        printf("n/a");
+        flag = 0;    
+    }
+
+    if (flag) {
+
+        int matrix[Y][X];
+        for (int i = 0; i < Y; i++) {
+            for (int j = 0; j < X; j++) {
+                scanf("%d", &matrix[i][j]);
+            }
+        }
+
+        int max = matrix[0][0], min = matrix[0][0], max_i = 0, min_i = 0, max_j = 0, min_j = 0;
+
+        for (int i = 0; i < Y; i++) {
+            for (int j = 0; j < X; j++) {
+                if (matrix[i][j] > max) {
+                    max = matrix[i][j];
+                    max_i = i;
+                    max_j = j;
+                }
+                if (matrix[i][j] < min) {
+                    min = matrix[i][j];
+                    min_i = i;
+                    min_j = j;
+                }
+            }
+        }
+
+        matrix[min_i][min_j] = max;
+        matrix[max_i][max_j] = min;
+        for (int i = 0; i < Y; i++) {
+            for (int j = 0; j < X; j++) {
+                printf("%d ", matrix[i][j]);
+            }
+            printf("\n");
+        }
+    }
+    return 0;
+}
+    
     
     
     
