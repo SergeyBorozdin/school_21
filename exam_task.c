@@ -307,6 +307,62 @@ int main() {
     }
   return 0;
 }
+    
+// =============================================================
+    // задача 8 умножение матриц
+    
+#include <stdio.h>
+
+int main () {
+// важно условие что количество строк первой матрицы равно количесвту столбцов второй матрицы
+    int matrix1[3][2];
+    matrix1[0][0] = 1;
+    matrix1[0][1] = 2;
+    matrix1[1][0] = 3;
+    matrix1[1][1] = 4;
+    matrix1[2][0] = 5;
+    matrix1[2][1] = 6;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+            printf("%d ", matrix1[i][j]);
+        }
+        printf("\n");
+    }
+    printf("-------------------------\n");
+    int matrix2[2][3];
+    matrix2[0][0] = 6;
+    matrix2[0][1] = 5;
+    matrix2[0][2] = 4;
+    matrix2[1][0] = 3;
+    matrix2[1][1] = 2;
+    matrix2[1][2] = 1;
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", matrix2[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("-------------------------\n");
+    int matrix_res[3][3];
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            matrix_res[i][j] = 0;
+            for (int k = 0; k < 2; k++) { // к равно количесвту столбцов первой матрицы
+                matrix_res[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
+        }
+    }
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", matrix_res[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
 
  // ****************************************   
     // таблица askii с номерами 
