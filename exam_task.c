@@ -268,8 +268,46 @@ int main () {
 }
     
     
+ // =================================================
+    // задача экзамена 7
+    // является ли строка палиндромом
     
-    
+ #include <stdio.h>
+
+int main() {
+
+    char str[1000];
+    char c;
+    int flag = 1, i = 0;
+
+    while (scanf("%c", &c) != 0 && c != '\n') {
+        str[i] = c;
+        i++;
+    }
+    str[i] = '\0';
+
+    if (flag) {
+        for(int j = 0; j < i; j++) {
+            if (str[j] >= 'A' && str[j] <= 'Z') {
+                str[j] = str[j] + 32;
+            }
+        }
+
+        for (int j = 0; j < i / 2; j++) {
+           if (str[j] != str[i -1 - j]) {
+               flag = 0;
+           }
+        }
+
+        if (flag) {
+            printf("YES");
+        } else {
+            printf("NO");
+        }
+    }
+  return 0;
+}
+
  // ****************************************   
     // таблица askii с номерами 
     
