@@ -2,33 +2,22 @@
 
 #include <stdio.h>
 
-int main() {
+int main () {
 
-    int n = 0;
-    int i = 0;
-    int arr[10];
-    int flag = 1;
+    int n, a, b, c, res = 0, flag = 1;
+    if (scanf("%d", &n) == 1 && getchar() != 1) {
+        a = n % 10;
+        b = (n / 10) % 10;
+        c = n / 100;
+    } else {
+        printf("n/a");
+        flag = 0;
+    }
+    if (flag) {
+        printf("%d", res = res + a * 100 + b * 10 + c);
 
-    while (n != -1) {
-
-        if (scanf("%d", &n) != 1) {
-            printf("n/a");
-            flag = 0;
-            break;
-        }
-        if (n != -1) {
-            arr[i] = n;
-            i++;
-        }
     }
 
-    if (flag && arr[0] != 0) {
-
-        for(int j = i - 1; j > 0; j--) {
-            printf("%d ", arr[j]);
-        }
-        printf("%d", arr[0]);
-    }
     return 0;
 }
 
